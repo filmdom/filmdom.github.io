@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Andre</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Akhir About -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" />
+  <a id="popuplink" href="#inline" style="display:none;"></a>
+  <div id="inline" style="display:none;text-align:center; width: auto; height: 150px;">
+
+  <h3>Info</h3>
+  <p>Bisa Daftar Akun Anda Untuk Login Di Aplikasi Filmdom.</p>
+  <br>
+  <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Close</a></p>
+  </div>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.js"></script>
+
+    <div class="wrapper">
+        <h1 class="main-heading">Sign up</h1>
+        <p class="sub-text">Sign up using your email and password.</p>
+        <div class="message-wrapper" id="messageDiv">
+            <h6 class="message"></h6>
+        </div>
+        <div class="form-wrapper">
+            <form id="registerForm">
+                <div class="input-field">
+                    <label>Email</label>
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="input-field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" name="password">
+                </div>
+                <button class="main-button" type="submit">Register</button>
+            </form>
+        </div>
+        <div class="bottom-message">
+            <h5>Already a user? <a href="index-2.html">Sign in</a></h5>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="app-2.js"></script>
+</body>
+</html>
+
+<script>
+        jQuery(document).ready(function () {
+  function openFancybox() {
+      setTimeout(function () {
+          jQuery('#popuplink').trigger('click');
+      }, 500);
+  };
+  var visited = jQuery.cookie('visited');
+  if (visited == 'no') {
+       // second page load, cookie active
+  } else {
+      openFancybox(); // first page load, launch fancybox
+  }
+  jQuery.cookie('visited', 'no', {
+      expires: 1 // the number of days cookie  will be effective
+  });
+  jQuery("#popuplink").fancybox({modal:true, maxWidth: 400, overlay : {closeClick : true}});
+});
+
+</script>
